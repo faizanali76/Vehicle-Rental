@@ -512,6 +512,23 @@ export default function AppShell({ initialData }: { initialData: DashboardData }
     await refresh();
   }
 
+  function selectTargetRecord(id: string) {
+    setTargetId(id);
+
+    const selected = current.rows().find((row) => rowId(row, current.idKey) === id);
+    if (!selected) {
+      setForm({});
+      return;
+    }
+
+    setForm(
+      current.updateFields.reduce<Record<string, string>>((draft, field) => {
+        draft[field.name] = fieldValueForInput(selected[field.name], field.type);
+        return draft;
+      }, {}),
+    );
+  }
+
   const areas = [
     { key: "overview", label: "Overview", icon: BarChart3 },
     { key: "operations", label: "CRUD", icon: Database },
@@ -617,6 +634,7 @@ export default function AppShell({ initialData }: { initialData: DashboardData }
                           onClick={() => {
                             setMode(item);
                             setForm({});
+                            setTargetId("");
                           }}
                           className={`rounded px-3 py-2 text-sm font-semibold ${mode === item ? "bg-[#113d24] text-white" : "text-[#2e6a43]"}`}
                         >
@@ -632,7 +650,7 @@ export default function AppShell({ initialData }: { initialData: DashboardData }
                         <span className="mb-1 block text-sm font-semibold">Record</span>
                         <select
                           value={targetId}
-                          onChange={(event) => setTargetId(event.target.value)}
+                          onChange={(event) => selectTargetRecord(event.target.value)}
                           required
                           className="h-11 w-full rounded-md border border-[#cbdcca] bg-white px-3 text-sm"
                         >
@@ -864,18 +882,60 @@ function FieldControl({
           ))}
         </select>
       ) : field.type === "textarea" ? (
-        <textarea value={value} onChange={(event) => onChange(event.target.value)} required={field.required} className={`${base} min-h-24 py-3`} />
+        <textarea
+          value={value}
+          onChange={(event) => onChange(event.target.value)}
+          required={field.required}
+          placeholder={fieldPlaceholder(field)}
+          className={`${base} min-h-24 py-3`}
+        />
       ) : (
         <input
           type={field.type ?? "text"}
           value={value}
           onChange={(event) => onChange(event.target.value)}
           required={field.required}
+          placeholder={fieldPlaceholder(field)}
           className={`${base} h-11`}
         />
       )}
     </label>
   );
+}
+
+function fieldValueForInput(value: unknown, type: Field["type"]) {
+  if (value === null || value === undefined) return "";
+  if (type === "datetime-local") {
+    const date = new Date(String(value));
+    if (Number.isNaN(date.getTime())) return "";
+    return date.toISOString().slice(0, 16);
+  }
+  if (type === "date") return String(value).slice(0, 10);
+  return String(value);
+}
+
+function fieldPlaceholder(field: Field) {
+  const examples: Record<string, string> = {
+    color: "Example: White",
+    mileage: "Example: 12500",
+    daily_rate: "Example: 45",
+    first_name: "Example: Ali",
+    last_name: "Example: Khan",
+    email: "Example: ali.khan@example.com",
+    phone: "Example: +923001234567",
+    driver_license_no: "Example: DL-LHR-20001",
+    license_plate: "Example: LHR-500",
+    vin: "17 characters, unique",
+    amount: "Example: 120",
+    additional_charges: "Example: 50",
+    salary: "Example: 85000",
+    cost: "Example: 300",
+    repair_cost: "Example: 500",
+    description: "Write short details",
+    notes: "Optional notes",
+  };
+
+  return examples[field.name] ?? field.label;
 }
 
 function DataTable({ rows, columns }: { rows: AnyRow[]; columns: Column[] }) {

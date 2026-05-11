@@ -784,7 +784,11 @@ INSERT INTO category (category_id, name, description, base_daily_rate) VALUES
   ('aaaaaaaa-0000-0000-0000-000000000003', 'SUV',        'Sport Utility Vehicles',                55.00),
   ('aaaaaaaa-0000-0000-0000-000000000004', 'Luxury',     'Premium class vehicles',                95.00),
   ('aaaaaaaa-0000-0000-0000-000000000005', 'Pickup',     'Utility pickup trucks',                 45.00),
-  ('aaaaaaaa-0000-0000-0000-000000000006', 'Van',        'Passenger and cargo vans',              60.00);
+  ('aaaaaaaa-0000-0000-0000-000000000006', 'Van',        'Passenger and cargo vans',              60.00),
+  ('aaaaaaaa-0000-0000-0000-000000000007', 'Mini SUV',   'Compact crossovers for city rentals',   48.00),
+  ('aaaaaaaa-0000-0000-0000-000000000008', 'Executive',  'Business class premium sedans',         80.00),
+  ('aaaaaaaa-0000-0000-0000-000000000009', 'Electric',   'Battery electric vehicles',             70.00),
+  ('aaaaaaaa-0000-0000-0000-000000000010', 'Commercial', 'High-capacity business utility vehicles',65.00);
 
 -- 8.2 Models (15 records)
 INSERT INTO model (model_id, category_id, make, model_name, year, passenger_capacity, fuel_type, transmission) VALUES
@@ -810,7 +814,12 @@ INSERT INTO branch (branch_id, name, address, city, phone, email) VALUES
   ('cccccccc-0000-0000-0000-000000000002','Airport Branch',   '3 Airport Road',      'Karachi',   '+92-21-2345678', 'airport@vrental.com'),
   ('cccccccc-0000-0000-0000-000000000003','North City Branch','72 GT Road',          'Islamabad', '+92-51-3456789', 'north@vrental.com'),
   ('cccccccc-0000-0000-0000-000000000004','East Side Branch', '200 Ring Road',       'Lahore',    '+92-42-4567890', 'east@vrental.com'),
-  ('cccccccc-0000-0000-0000-000000000005','South Plaza Branch','9 Commercial Zone',  'Karachi',   '+92-21-5678901', 'south@vrental.com');
+  ('cccccccc-0000-0000-0000-000000000005','South Plaza Branch','9 Commercial Zone',  'Karachi',   '+92-21-5678901', 'south@vrental.com'),
+  ('cccccccc-0000-0000-0000-000000000006','University Branch','12 Campus Road',      'Lahore',    '+92-42-6678901', 'university@vrental.com'),
+  ('cccccccc-0000-0000-0000-000000000007','Seaview Branch',   '88 Seaview Avenue',   'Karachi',   '+92-21-6678902', 'seaview@vrental.com'),
+  ('cccccccc-0000-0000-0000-000000000008','Blue Area Branch', '44 Jinnah Avenue',    'Islamabad', '+92-51-6678903', 'bluearea@vrental.com'),
+  ('cccccccc-0000-0000-0000-000000000009','Cantt Branch',     '19 Mall Road Cantt',  'Rawalpindi','+92-51-6678904', 'cantt@vrental.com'),
+  ('cccccccc-0000-0000-0000-000000000010','Bahria Branch',    '27 Bahria Town',      'Lahore',    '+92-42-6678905', 'bahria@vrental.com');
 
 -- 8.4 Staff (15 records)
 INSERT INTO staff (staff_id, branch_id, first_name, last_name, email, phone, role, hire_date, salary) VALUES

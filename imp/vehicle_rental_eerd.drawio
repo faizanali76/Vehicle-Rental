@@ -1,0 +1,183 @@
+<mxfile host="app.diagrams.net" modified="2026-05-08T00:00:00.000Z" agent="Codex" version="24.7.17" type="device">
+  <diagram id="vehicle-rental-eerd" name="Vehicle Rental EERD">
+    <mxGraphModel dx="1800" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="Vehicle Rental System - Enhanced Entity Relationship Diagram (EERD)" style="text;html=1;strokeColor=none;fillColor=none;fontSize=24;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="470" y="20" width="850" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend" value="EERD features: Staff specialization is total and disjoint. Category generalization stores rental class groups. Contract is modeled as an aggregation of reservation, customer, vehicle, staff, branches, dates, and pricing." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="360" y="70" width="1080" height="55" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="category" value="&lt;b&gt;CATEGORY&lt;/b&gt;&lt;br&gt;&lt;u&gt;category_id&lt;/u&gt;&lt;br&gt;name&lt;br&gt;description&lt;br&gt;base_daily_rate" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="90" y="190" width="170" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="model" value="&lt;b&gt;MODEL&lt;/b&gt;&lt;br&gt;&lt;u&gt;model_id&lt;/u&gt;&lt;br&gt;category_id (FK)&lt;br&gt;make, model_name&lt;br&gt;year, fuel_type&lt;br&gt;transmission, capacity" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2e7d32;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="190" width="185" height="125" as="geometry"/>
+        </mxCell>
+        <mxCell id="vehicle" value="&lt;b&gt;VEHICLE&lt;/b&gt;&lt;br&gt;&lt;u&gt;vehicle_id&lt;/u&gt;&lt;br&gt;model_id (FK)&lt;br&gt;branch_id (FK)&lt;br&gt;license_plate, vin&lt;br&gt;status, daily_rate" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2e7d32;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="650" y="190" width="185" height="125" as="geometry"/>
+        </mxCell>
+        <mxCell id="insurance" value="&lt;b&gt;INSURANCE&lt;/b&gt;&lt;br&gt;&lt;u&gt;insurance_id&lt;/u&gt;&lt;br&gt;vehicle_id (FK)&lt;br&gt;policy_number&lt;br&gt;coverage_type&lt;br&gt;start_date, end_date" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2e7d32;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="920" y="165" width="185" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="maintenance" value="&lt;b&gt;MAINTENANCE&lt;/b&gt;&lt;br&gt;&lt;u&gt;maintenance_id&lt;/u&gt;&lt;br&gt;vehicle_id (FK)&lt;br&gt;branch_id (FK)&lt;br&gt;staff_id (FK)&lt;br&gt;type, cost, status" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2e7d32;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="920" y="315" width="185" height="125" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="branch" value="&lt;b&gt;BRANCH&lt;/b&gt;&lt;br&gt;&lt;u&gt;branch_id&lt;/u&gt;&lt;br&gt;name&lt;br&gt;address, city&lt;br&gt;phone, email&lt;br&gt;manager_id (FK)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2e7d32;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="90" y="500" width="180" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="staff" value="&lt;b&gt;STAFF&lt;/b&gt;&lt;br&gt;&lt;u&gt;staff_id&lt;/u&gt;&lt;br&gt;branch_id (FK)&lt;br&gt;first_name, last_name&lt;br&gt;email, phone&lt;br&gt;role, salary, is_active" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fffde7;strokeColor=#f9a825;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="370" y="500" width="190" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="manager" value="Manager" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff8e1;strokeColor=#f9a825;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="255" y="760" width="120" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="agent" value="Agent" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff8e1;strokeColor=#f9a825;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="405" y="760" width="120" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="mechanic" value="Mechanic" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff8e1;strokeColor=#f9a825;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="555" y="760" width="120" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="cleaner" value="Cleaner" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff8e1;strokeColor=#f9a825;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="705" y="760" width="120" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="staffSpec" value="d" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fffde7;strokeColor=#f9a825;fontStyle=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="465" y="680" width="45" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="staffSpecLabel" value="total, disjoint specialization by staff.role" style="text;html=1;strokeColor=none;fillColor=none;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="300" y="720" width="370" height="25" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="customer" value="&lt;b&gt;CUSTOMER&lt;/b&gt;&lt;br&gt;&lt;u&gt;customer_id&lt;/u&gt;&lt;br&gt;first_name, last_name&lt;br&gt;email, phone&lt;br&gt;driver_license_no&lt;br&gt;license_expiry" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1565c0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="90" y="875" width="185" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="reservation" value="&lt;b&gt;RESERVATION&lt;/b&gt;&lt;br&gt;&lt;u&gt;reservation_id&lt;/u&gt;&lt;br&gt;customer_id (FK)&lt;br&gt;vehicle_id (FK)&lt;br&gt;pickup/return branch&lt;br&gt;dates, status, total" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1565c0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="375" y="875" width="190" height="125" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="aggregateBox" value="Rental Transaction Aggregation" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4;fillColor=none;strokeColor=#6a1b9a;fontSize=15;fontStyle=1;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="630" y="720" width="610" height="345" as="geometry"/>
+        </mxCell>
+        <mxCell id="contract" value="&lt;b&gt;CONTRACT&lt;/b&gt;&lt;br&gt;&lt;u&gt;contract_id&lt;/u&gt;&lt;br&gt;reservation_id (FK)&lt;br&gt;customer_id, vehicle_id&lt;br&gt;staff_id, branch ids&lt;br&gt;rates, totals, status" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#6a1b9a;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="835" y="835" width="200" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="payment" value="&lt;b&gt;PAYMENT&lt;/b&gt;&lt;br&gt;&lt;u&gt;payment_id&lt;/u&gt;&lt;br&gt;contract_id (FK)&lt;br&gt;amount&lt;br&gt;payment_method&lt;br&gt;status, transaction_id" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6a1b9a;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="775" width="185" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="damage" value="&lt;b&gt;DAMAGE_REPORT&lt;/b&gt;&lt;br&gt;&lt;u&gt;damage_id&lt;/u&gt;&lt;br&gt;vehicle_id (FK)&lt;br&gt;contract_id (FK)&lt;br&gt;reported_by (FK)&lt;br&gt;severity, cost, status" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6a1b9a;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="925" width="185" height="125" as="geometry"/>
+        </mxCell>
+        <mxCell id="audit" value="&lt;b&gt;AUDIT_LOG&lt;/b&gt;&lt;br&gt;&lt;u&gt;log_id&lt;/u&gt;&lt;br&gt;table_name&lt;br&gt;operation&lt;br&gt;record_id&lt;br&gt;old_data, new_data" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#616161;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1530" y="500" width="170" height="115" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="classSpec" value="d" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#2e7d32;fontStyle=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="150" y="340" width="45" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="economy" value="Economy" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="15" y="410" width="95" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="sedan" value="Sedan" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="125" y="410" width="95" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="suv" value="SUV" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="235" y="410" width="95" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="luxury" value="Luxury/Van" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="345" y="410" width="105" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="classLabel" value="generalization of rental classes stored as Category rows" style="text;html=1;strokeColor=none;fillColor=none;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="10" y="455" width="440" height="25" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="rel_cat_model" value="classifies 1:N" style="endArrow=block;html=1;rounded=0;strokeColor=#2e7d32;fontSize=11;" edge="1" parent="1" source="category" target="model">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rel_model_vehicle" value="describes 1:N" style="endArrow=block;html=1;rounded=0;strokeColor=#2e7d32;fontSize=11;" edge="1" parent="1" source="model" target="vehicle">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rel_vehicle_insurance" value="covered by 1:N" style="endArrow=block;html=1;rounded=0;strokeColor=#2e7d32;fontSize=11;" edge="1" parent="1" source="vehicle" target="insurance">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rel_vehicle_maint" value="serviced by 1:N" style="endArrow=block;html=1;rounded=0;strokeColor=#2e7d32;fontSize=11;" edge="1" parent="1" source="vehicle" target="maintenance">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rel_branch_vehicle" value="houses 1:N" style="endArrow=block;html=1;rounded=0;strokeColor=#2e7d32;fontSize=11;" edge="1" parent="1" source="branch" target="vehicle">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rel_branch_staff" value="employs 1:N" style="endArrow=block;html=1;rounded=0;strokeColor=#f9a825;fontSize=11;" edge="1" parent="1" source="branch" target="staff">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rel_staff_branch" value="manages 1:1 optional" style="endArrow=block;html=1;rounded=0;dashed=1;strokeColor=#f9a825;fontSize=11;" edge="1" parent="1" source="staff" target="branch">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rel_customer_res" value="makes 1:N" style="endArrow=block;html=1;rounded=0;strokeColor=#1565c0;fontSize=11;" edge="1" parent="1" source="customer" target="reservation">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rel_vehicle_res" value="reserved in 1:N" style="endArrow=block;html=1;rounded=0;strokeColor=#1565c0;fontSize=11;" edge="1" parent="1" source="vehicle" target="reservation">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rel_res_contract" value="becomes 1:1 optional" style="endArrow=block;html=1;rounded=0;strokeColor=#6a1b9a;fontSize=11;" edge="1" parent="1" source="reservation" target="contract">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rel_customer_contract" value="signs 1:N" style="endArrow=block;html=1;rounded=0;strokeColor=#6a1b9a;fontSize=11;" edge="1" parent="1" source="customer" target="contract">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rel_vehicle_contract" value="rented through 1:N" style="endArrow=block;html=1;rounded=0;strokeColor=#6a1b9a;fontSize=11;" edge="1" parent="1" source="vehicle" target="contract">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rel_staff_contract" value="handles 1:N" style="endArrow=block;html=1;rounded=0;strokeColor=#6a1b9a;fontSize=11;" edge="1" parent="1" source="staff" target="contract">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rel_contract_payment" value="paid by 1:N" style="endArrow=block;html=1;rounded=0;strokeColor=#6a1b9a;fontSize=11;" edge="1" parent="1" source="contract" target="payment">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rel_contract_damage" value="can generate 1:N" style="endArrow=block;html=1;rounded=0;strokeColor=#6a1b9a;fontSize=11;" edge="1" parent="1" source="contract" target="damage">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rel_vehicle_damage" value="has 1:N" style="endArrow=block;html=1;rounded=0;strokeColor=#6a1b9a;fontSize=11;" edge="1" parent="1" source="vehicle" target="damage">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rel_audit" value="audit triggers write INSERT/UPDATE/DELETE history" style="endArrow=block;html=1;rounded=0;dashed=1;strokeColor=#616161;fontSize=11;" edge="1" parent="1" source="contract" target="audit">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge_staff_spec" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=2;strokeColor=#f9a825;" edge="1" parent="1" source="staff" target="staffSpec">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge_staff_manager" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#f9a825;" edge="1" parent="1" source="staffSpec" target="manager">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge_staff_agent" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#f9a825;" edge="1" parent="1" source="staffSpec" target="agent">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge_staff_mechanic" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#f9a825;" edge="1" parent="1" source="staffSpec" target="mechanic">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge_staff_cleaner" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#f9a825;" edge="1" parent="1" source="staffSpec" target="cleaner">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge_cat_spec" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#2e7d32;" edge="1" parent="1" source="category" target="classSpec">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge_cat_economy" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#2e7d32;" edge="1" parent="1" source="classSpec" target="economy">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge_cat_sedan" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#2e7d32;" edge="1" parent="1" source="classSpec" target="sedan">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge_cat_suv" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#2e7d32;" edge="1" parent="1" source="classSpec" target="suv">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge_cat_luxury" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#2e7d32;" edge="1" parent="1" source="classSpec" target="luxury">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
