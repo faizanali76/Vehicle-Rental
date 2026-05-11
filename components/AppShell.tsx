@@ -431,11 +431,10 @@ export default function AppShell({ initialData }: { initialData: DashboardData }
   const current = resources.find((item) => item.resource === activeResource) ?? resources[0];
   const visibleRows = current
     .rows()
-    .filter((row) => JSON.stringify(row).toLowerCase().includes(query.toLowerCase()))
-    .slice(0, 12);
+    .filter((row) => JSON.stringify(row).toLowerCase().includes(query.toLowerCase()));
 
   async function refresh() {
-    const response = await fetch("/api/dashboard", { cache: "no-store" });
+    const response = await fetch(`/api/dashboard?ts=${Date.now()}`, { cache: "no-store" });
     const next = (await response.json()) as DashboardData;
     setData(next);
   }
